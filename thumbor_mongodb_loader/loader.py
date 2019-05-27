@@ -13,9 +13,9 @@ def __conn__(self):
     if urllib.quote_plus(self.config.MONGO_ORIGIN_SERVER_USER):
         password = urllib.quote_plus(self.config.MONGO_ORIGIN_SERVER_PASSWORD)
         user = urllib.quote_plus(self.config.MONGO_ORIGIN_SERVER_USER)
-        uri = 'mongodb://'+ self.config.MONGO_ORIGIN_SERVER_HOST
-    else:
         uri = 'mongodb://'+ user +':' + password + '@' + self.config.MONGO_ORIGIN_SERVER_HOST + '/?authSource=' + self.config.MONGO_ORIGIN_SERVER_DB
+    else:
+        uri = 'mongodb://'+ self.config.MONGO_ORIGIN_SERVER_HOST
     client = MongoClient(uri)
     #database
     db = client[self.config.MONGO_ORIGIN_SERVER_DB]
