@@ -19,7 +19,7 @@ def __conn__(self):
         uri = 'mongodb://'+ self.config.MONGO_ORIGIN_SERVER_HOST
     client = MongoClient(uri)
     #database
-    db = client[self.config.MONGO_ORIGIN_SERVER_DB]
+    db = client[self.c  onfig.MONGO_ORIGIN_SERVER_DB]
     return db
 
 @return_future
@@ -29,10 +29,14 @@ def load(self, path, callback):
     storage = self.config.MONGO_ORIGIN_SERVER_COLLECTION
     images = gridfs.GridFS(db, collection=storage)
     result = LoaderResult()
-    if images.exists(ObjectId(words2[0])):
-        contents = images.get(ObjectId(words2[0])).read()
-        result.successful = True
-        result.buffer = contents
+    if ObjectId.is_valid(words2[0]):
+        if images.exists(ObjectId(words2[0])):
+            contents = images.get(ObjectId(words2[0])).read()
+            result.successful = True
+            result.buffer = contents
+        else:
+            result.error = LoaderResult.ERROR_NOT_FOUND
+            result.successful = False
     else:
         result.error = LoaderResult.ERROR_NOT_FOUND
         result.successful = False
