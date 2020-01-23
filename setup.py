@@ -9,7 +9,7 @@ from distutils.core import setup
 setup(
     name = "thumbor_mongodb_loader",
     packages = ["thumbor_mongodb_loader"],
-    version = "1.2.4",
+    version = "1.2.5",
     description = "MongoDB GridFS loader for Thumbor - Jeunesse Francetv Release",
     author = "Bertrand Thill",
     author_email = "bertrand.thill@francetv.fr",

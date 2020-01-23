@@ -19,7 +19,7 @@ def __conn__(self):
         uri = 'mongodb://'+ self.config.MONGO_ORIGIN_SERVER_HOST
     client = MongoClient(uri)
     #database
-    db = client[self.c  onfig.MONGO_ORIGIN_SERVER_DB]
+    db = client[self.config.MONGO_ORIGIN_SERVER_DB]
     return db
 
 @return_future
