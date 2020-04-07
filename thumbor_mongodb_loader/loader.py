@@ -6,14 +6,14 @@ from tornado.concurrent import return_future
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 import gridfs
-import urllib
+import urllib.request, urllib.parse, urllib.error
 from thumbor.loaders import LoaderResult
 
 async def __conn__(self):
     the_database = self.config.MONGO_ORIGIN_SERVER_DB
-    if urllib.quote_plus(self.config.MONGO_ORIGIN_SERVER_USER):
-        password = urllib.quote_plus(self.config.MONGO_ORIGIN_SERVER_PASSWORD)
-        user = urllib.quote_plus(self.config.MONGO_ORIGIN_SERVER_USER)
+    if urllib.parse.quote_plus(self.config.MONGO_ORIGIN_SERVER_USER):
+        password = urllib.parse.quote_plus(self.config.MONGO_ORIGIN_SERVER_PASSWORD)
+        user = urllib.parse.quote_plus(self.config.MONGO_ORIGIN_SERVER_USER)
         uri = 'mongodb://'+ user +':' + password + '@' + self.config.MONGO_ORIGIN_SERVER_HOST + '/?authSource=' + self.config.MONGO_ORIGIN_SERVER_DB
     else:
         uri = 'mongodb://'+ self.config.MONGO_ORIGIN_SERVER_HOST
