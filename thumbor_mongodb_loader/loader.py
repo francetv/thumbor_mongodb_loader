@@ -9,7 +9,7 @@ import gridfs
 import urllib
 from thumbor.loaders import LoaderResult
 
-def __conn__(self):
+async def __conn__(self):
     the_database = self.config.MONGO_ORIGIN_SERVER_DB
     if urllib.quote_plus(self.config.MONGO_ORIGIN_SERVER_USER):
         password = urllib.quote_plus(self.config.MONGO_ORIGIN_SERVER_PASSWORD)
@@ -22,8 +22,8 @@ def __conn__(self):
     db = client[self.config.MONGO_ORIGIN_SERVER_DB]
     return db
 
-@return_future
-def load(self, path, callback):
+
+async def load(self, path):
     db = __conn__(self)
     words2 = path.split("/")
     storage = self.config.MONGO_ORIGIN_SERVER_COLLECTION
@@ -40,4 +40,4 @@ def load(self, path, callback):
     else:
         result.error = LoaderResult.ERROR_NOT_FOUND
         result.successful = False
-    callback(result)
+    return result

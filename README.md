@@ -1,5 +1,5 @@
 # thumbor_mongodb_loader
-Thumbor MongoDB GridFS loader
+Thumbor MongoDB GridFS loader for Thumbor 7, python 3.6 (async)
 
 
 ```
