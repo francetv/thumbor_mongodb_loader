@@ -21,11 +21,7 @@ setup(
                    'License :: OSI Approved :: MIT License',
                    'Natural Language :: English',
                    'Operating System :: POSIX :: Linux',
-<<<<<<< HEAD
                    'Programming Language :: Python :: 3.6',
-=======
-                   'Programming Language :: Python :: 3.5',
->>>>>>> 23904806d1266da4864c2ebc3a069a578726850e
                    'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
                    'Topic :: Multimedia :: Graphics :: Presentation'
     ],
