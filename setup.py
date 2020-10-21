@@ -26,7 +26,7 @@ setup(
                    'Topic :: Multimedia :: Graphics :: Presentation'
     ],
     package_dir = {"thumbor_mongodb_loader": "thumbor_mongodb_loader"},
-    install_requires=['thumbor>=7.0.0','pymongo>=3.4.0'],
+    install_requires=['thumbor>=7.0.0a5','pymongo>=3.4.0'],
     long_description = """\
 This module provide support for MongoDB GridFS loader.
 Image data is addressed by its ObjectId('path')
